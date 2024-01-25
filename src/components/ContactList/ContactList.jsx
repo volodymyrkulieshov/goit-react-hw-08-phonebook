@@ -17,7 +17,10 @@ const ContactList = () => {
       <List style={{ width: '100%', backgroundColor: '#fff' }}>
         {contacts.map(({ name, number, id }) => {
           return (
-            <ListItem style={{ display: 'flex', alignItems: 'center' }}>
+            <ListItem
+              style={{ display: 'flex', alignItems: 'center' }}
+              key={id}
+            >
               <Typography
                 style={{ marginRight: 25 }}
                 typography="h6"
