@@ -20,7 +20,13 @@ const ContactList = () => {
         {contacts.map(({ name, number, id }) => {
           return (
             <ListItem
-              style={{ display: 'flex', alignItems: 'center' }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                width: 550,
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
               key={id}
             >
               <Typography
