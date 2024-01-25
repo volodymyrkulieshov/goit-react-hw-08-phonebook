@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import { addContactThunk } from '../../redux/contacts/contactsThunks';
 import { selectAllContacts } from '../../redux/contacts/selectors';
-import css from './ContactForm.module.css';
+import { Button, TextField } from '@mui/material';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -57,34 +57,41 @@ const ContactForm = () => {
 
   return (
     <>
-      <form className={css.contactForm} onSubmit={handleSubmit}>
-        <label className={css.label} htmlFor="example">
+      <form onSubmit={handleSubmit}>
+        {/* <label className={css.label} htmlFor="example">
           Name
-        </label>
-        <input
-          className={css.input}
+        </label> */}
+        <TextField
+          style={{ marginBottom: 20 }}
+          onChange={handleChange}
+          id="outlined-basic"
           name="name"
           type="text"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
           value={name}
-          onChange={handleChange}
+          label="Name"
+          fullWidth
           required
         />
-        <label className={css.label} htmlFor="example">
+        {/* <label className={css.label} htmlFor="example">
           Number
-        </label>
-        <input
-          className={css.input}
+        </label> */}
+        <TextField
+          style={{ marginBottom: 20 }}
+          onChange={handleChange}
           type="tel"
           name="number"
           value={number}
-          onChange={handleChange}
+          label="Number"
+          fullWidth
           required
         />
-        <button className={css.button} type="submit">
+        <Button
+          style={{ textTransform: 'none', margin: 'auto', display: 'block' }}
+          variant="contained"
+          type="submit"
+        >
           Add contact
-        </button>
+        </Button>
       </form>
     </>
   );

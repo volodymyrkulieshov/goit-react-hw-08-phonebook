@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/authThunks';
+import { selectUserEmail } from '../../redux/auth/authSelectors';
 
 const UserMenu = () => {
-  const userEmail = useSelector(state => state.user.user.email);
+  const userEmail = useSelector(selectUserEmail);
   const dispatch = useDispatch();
 
   const onLogout = () => {

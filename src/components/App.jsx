@@ -3,6 +3,7 @@ import { useEffect, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from '../redux/auth/authThunks';
 import Layout from './Layout/Layout';
+import { selectIsRefreshing } from '../redux/auth/authSelectors';
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const RestrictedRoute = lazy(() => import('./RestrictedRoute'));
 const PrivateRoute = lazy(() => import('./PrivateRoute'));
@@ -13,7 +14,7 @@ const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
 
 const App = () => {
-  const isRefreshing = useSelector(state => state.user.isRefreshing);
+  const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
 
   useEffect(() => {

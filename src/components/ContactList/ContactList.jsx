@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContactThunk } from '../../redux/contacts/contactsThunks';
 import { selectFilteredContacts } from '../../redux/contacts/selectors';
-import css from './ContactList.module.css';
+import { Box, Button, List, ListItem, Typography } from '@mui/material';
 
 const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
@@ -14,22 +14,40 @@ const ContactList = () => {
   };
   return (
     <>
-      <ul className={css.contactList}>
+      <List style={{ width: '100%', backgroundColor: '#fff' }}>
         {contacts.map(({ name, number, id }) => {
           return (
-            <li className={css.contact} key={id}>
-              {name}: <span>{number}</span>
-              <button
-                className={css.deleteButton}
-                type="button"
-                onClick={() => onDeleteContact(id, name)}
+            <ListItem style={{ display: 'flex', alignItems: 'center' }}>
+              <Typography
+                style={{ marginRight: 25 }}
+                typography="h6"
+                color="#1954d2"
+                component="span"
               >
-                Delete
-              </button>
-            </li>
+                {name}:
+              </Typography>
+              <Box style={{ marginLeft: 'auto' }}>
+                <Typography
+                  style={{ marginRight: 25 }}
+                  typography="h6"
+                  color="#1954d2"
+                  component="span"
+                >
+                  {number}
+                </Typography>
+                <Button
+                  variant="contained"
+                  style={{ backgroundColor: 'darkBlue' }}
+                  type="button"
+                  onClick={() => onDeleteContact(id, name)}
+                >
+                  Delete
+                </Button>
+              </Box>
+            </ListItem>
           );
         })}
-      </ul>
+      </List>
     </>
   );
 };

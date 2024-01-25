@@ -1,8 +1,12 @@
 import { useSelector } from 'react-redux';
+import {
+  selectIsLoggedIn,
+  selectUserName,
+} from '../../redux/auth/authSelectors';
 
 const HomePage = () => {
-  const userName = useSelector(state => state.user.user.name);
-  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+  const userName = useSelector(selectUserName);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <div>
       {isLoggedIn ? (
@@ -10,10 +14,7 @@ const HomePage = () => {
       ) : (
         <h3>Create or sign in an account</h3>
       )}
-      <p>
-        Super cool application for creating and storing contacts. It won't be
-        better.
-      </p>
+      <p>PhoneBook</p>
     </div>
   );
 };

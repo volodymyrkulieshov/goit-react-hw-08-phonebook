@@ -4,9 +4,10 @@ import UserMenu from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import AuthBar from 'components/AuthBar/AuthBar';
 import Loader from 'components/Loader/Loader';
+import { selectIsLoggedIn } from '../../redux/auth/authSelectors';
 
 const Layout = () => {
-  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <>
