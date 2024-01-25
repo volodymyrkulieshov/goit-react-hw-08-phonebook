@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://65ac4de7fcd1c9dcffc7c92d.mockapi.io/';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export const getAllContactsApi = async () => {
   const response = await axios.get('/contacts');
@@ -16,25 +16,3 @@ export const deleteContactApi = async contactId => {
   const response = await axios.delete(`/contacts/${contactId}`);
   return response.data;
 };
-// ----------------------------------
-// import axios from 'axios';
-
-// axios.defaults.baseURL = 'https://65ac4de7fcd1c9dcffc7c92d.mockapi.io/';
-
-// export const getAllContactsApi = async () => {
-//   const response = await axios.get('/contacts');
-
-//   // console.log(response.data);
-//   return response.data;
-// };
-// getAllContactsApi();
-
-// export const addContactApi = async contact => {
-//   const response = await axios.post('/contacts', contact);
-//   return response.data;
-// };
-
-// export const deleteContactApi = async contactId => {
-//   const response = await axios.delete(`/contacts/${contactId}`);
-//   return response.data;
-// };
