@@ -7,6 +7,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
   // console.log('contacts', contacts);
+
   const dispatch = useDispatch();
 
   const onDeleteContact = (id, name) => {
@@ -42,7 +43,7 @@ const ContactList = () => {
                 <Button
                   variant="outlined"
                   startIcon={<DeleteIcon />}
-                  // style={{ backgroundColor: '#1976d2' }}
+                  style={{ backgroundColor: '#1976d2', color: 'white' }}
                   type="button"
                   onClick={() => onDeleteContact(id, name)}
                 >

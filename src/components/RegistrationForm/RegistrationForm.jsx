@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/authThunks';
+import { Box, Button, TextField } from '@mui/material';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const RegistrationForm = () => {
 
   return (
     <>
-      <div
+      <Box
         style={{
           marginTop: 40,
           marginLeft: 'auto',
@@ -30,12 +31,40 @@ const RegistrationForm = () => {
         }}
       >
         <form onSubmit={handleRegister}>
-          <input label="Username" variant="outlined" type="text" name="name" />
-          <input label="Email" type="email" name="email" />
-          <input label="Password" type="password" name="password" />
-          <button type="submit">Register</button>
+          <TextField
+            style={{ marginBottom: 20 }}
+            id="outlined-basic"
+            fullWidth
+            label="Username"
+            variant="outlined"
+            type="text"
+            name="name"
+          />
+          <TextField
+            style={{ marginBottom: 20 }}
+            id="outlined-basic"
+            fullWidth
+            label="Email"
+            type="email"
+            name="email"
+          />
+          <TextField
+            style={{ marginBottom: 20 }}
+            id="outlined-basic"
+            fullWidth
+            label="Password"
+            type="password"
+            name="password"
+          />
+          <Button
+            style={{ display: 'block', margin: 'auto', textTransform: 'none' }}
+            variant="contained"
+            type="submit"
+          >
+            Register
+          </Button>
         </form>
-      </div>
+      </Box>
     </>
   );
 };

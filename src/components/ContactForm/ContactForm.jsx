@@ -58,12 +58,22 @@ const ContactForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          marginTop: 40,
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          width: 450,
+        }}
+      >
         {/* <label className={css.label} htmlFor="example">
           Name
         </label> */}
         <TextField
-          style={{ marginBottom: 20 }}
+          style={{
+            marginBottom: 20,
+          }}
           onChange={handleChange}
           id="outlined-basic"
           name="name"
@@ -77,7 +87,9 @@ const ContactForm = () => {
           Number
         </label> */}
         <TextField
-          style={{ marginBottom: 20 }}
+          style={{
+            marginBottom: 20,
+          }}
           onChange={handleChange}
           type="tel"
           name="number"

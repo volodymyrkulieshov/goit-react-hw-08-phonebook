@@ -18,16 +18,25 @@ const Filter = () => {
   };
 
   return (
-    <TextField
-      style={{ marginBottom: 15 }}
-      onChange={setFilter}
-      id={filterInputId}
-      type="text"
-      value={filterValue}
-      label=" Find contacts by name"
-      placeholder="Search"
-      fullWidth
-    />
+    <div
+      style={{
+        marginTop: 40,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        width: 450,
+      }}
+    >
+      <TextField
+        style={{ marginBottom: 15 }}
+        onChange={setFilter}
+        id={filterInputId}
+        type="text"
+        value={filterValue}
+        label=" Find contacts by name"
+        placeholder="Search"
+        fullWidth
+      />
+    </div>
   );
 };
 

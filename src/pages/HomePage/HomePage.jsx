@@ -3,19 +3,57 @@ import {
   selectIsLoggedIn,
   selectUserName,
 } from '../../redux/auth/authSelectors';
+import { Box, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const userName = useSelector(selectUserName);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
-    <div>
+    <Box
+      style={{
+        marginTop: 50,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        width: 800,
+      }}
+    >
       {isLoggedIn ? (
-        <h1>Welcome {userName}</h1>
+        <Typography
+          style={{
+            textAlign: 'center',
+            marginBottom: 20,
+            fontWeight: 500,
+          }}
+          variant="h3"
+          component="h3"
+        >
+          Welcome {userName}
+        </Typography>
       ) : (
-        <h3>Create or sign in an account</h3>
+        <Typography
+          style={{ textAlign: 'center', marginBottom: 25 }}
+          component="p"
+          variant="h3"
+        >
+          Create personal digital directory of your contacts
+          <Typography
+            style={{ textAlign: 'center' }}
+            component="p"
+            variant="h6"
+          >
+            To start working with the directory,{' '}
+            <Link to="/register" style={{ color: '#1976d2' }}>
+              register
+            </Link>{' '}
+            or{' '}
+            <Link to="/login" style={{ color: '#1976d2' }}>
+              log in
+            </Link>
+          </Typography>
+        </Typography>
       )}
-      <p>PhoneBook</p>
-    </div>
+    </Box>
   );
 };
 

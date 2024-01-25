@@ -17,7 +17,7 @@ const Layout = () => {
           <ul>
             <li style={{ display: 'flex', alignItems: 'center' }}>
               <Link to="/">
-                <Typography typography="h5" color="white">
+                <Typography typography="h6" color="white">
                   Home
                 </Typography>
               </Link>
