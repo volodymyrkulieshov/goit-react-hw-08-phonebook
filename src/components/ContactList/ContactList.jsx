@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteContactThunk } from '../../redux/contacts/contactsThunks';
 import { selectFilteredContacts } from '../../redux/contacts/selectors';
 import { Box, Button, List, ListItem, Typography } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
@@ -24,7 +25,7 @@ const ContactList = () => {
               <Typography
                 style={{ marginRight: 25 }}
                 typography="h6"
-                color="#1954d2"
+                color="#1976d2"
                 component="span"
               >
                 {name}:
@@ -33,14 +34,15 @@ const ContactList = () => {
                 <Typography
                   style={{ marginRight: 25 }}
                   typography="h6"
-                  color="#1954d2"
+                  color="#1976d2"
                   component="span"
                 >
                   {number}
                 </Typography>
                 <Button
-                  variant="contained"
-                  style={{ backgroundColor: 'darkBlue' }}
+                  variant="outlined"
+                  startIcon={<DeleteIcon />}
+                  // style={{ backgroundColor: '#1976d2' }}
                   type="button"
                   onClick={() => onDeleteContact(id, name)}
                 >

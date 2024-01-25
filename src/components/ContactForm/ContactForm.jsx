@@ -4,6 +4,7 @@ import { nanoid } from '@reduxjs/toolkit';
 import { addContactThunk } from '../../redux/contacts/contactsThunks';
 import { selectAllContacts } from '../../redux/contacts/selectors';
 import { Button, TextField } from '@mui/material';
+// import SendIcon from '@mui/icons-material/Send';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -86,7 +87,11 @@ const ContactForm = () => {
           required
         />
         <Button
-          style={{ textTransform: 'none', margin: 'auto', display: 'block' }}
+          style={{
+            textTransform: 'none',
+            margin: 'auto',
+            display: 'block',
+          }}
           variant="contained"
           type="submit"
         >

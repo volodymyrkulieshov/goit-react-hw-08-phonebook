@@ -3,7 +3,7 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectFilter } from '../../redux/contacts/selectors';
 import { changeFilter } from '../../redux/contacts/filterSlice';
-import css from './Filter.module.css';
+import { TextField } from '@mui/material';
 
 const filterInputId = nanoid();
 
@@ -18,19 +18,16 @@ const Filter = () => {
   };
 
   return (
-    <form className={css.filterForm}>
-      <label className={css.filterLabel}>
-        Find contacts by name
-        <input
-          className={css.filterInput}
-          id={filterInputId}
-          type="text"
-          value={filterValue}
-          onChange={setFilter}
-          placeholder="Search"
-        />
-      </label>
-    </form>
+    <TextField
+      style={{ marginBottom: 15 }}
+      onChange={setFilter}
+      id={filterInputId}
+      type="text"
+      value={filterValue}
+      label=" Find contacts by name"
+      placeholder="Search"
+      fullWidth
+    />
   );
 };
 
