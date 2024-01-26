@@ -1,14 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContactThunk } from '../../redux/contacts/contactsThunks';
+import {
+  deleteContactThunk,
+  getAllContactsThunk,
+} from '../../redux/contacts/contactsThunks';
 import { selectFilteredContacts } from '../../redux/contacts/selectors';
 import { Box, Button, List, ListItem, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useEffect } from 'react';
 
 const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
   // console.log('contacts', contacts);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllContactsThunk());
+  }, [dispatch]);
 
   const onDeleteContact = (id, name) => {
     dispatch(deleteContactThunk(id));
